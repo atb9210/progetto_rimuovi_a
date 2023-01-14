@@ -10,7 +10,7 @@ def form():
 @app.route("/submit", methods=["POST"])
 def submit():
     name = request.form["name"]
-    conn = sqlite3.connect("database.db")
+    conn = sqlite3.connect("database/database.db")
     c = conn.cursor()
     c.execute("""CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)""")
     c.execute("INSERT INTO users (name) VALUES (?)", (name,))
