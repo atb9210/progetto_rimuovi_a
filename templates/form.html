@@ -17,14 +17,20 @@
       </form>
       <div class="card-columns">
         {% for user in data %}
-          <div class="card">
+          <div class="card" id="{{ user[0] }}"">
             <div class="card-body">
               <p class="card-text">{{ user[0] }} {{ user[1] }}</p>
-              <a href="/card/{{ user[0] }}/delete" class="btn btn-danger">Delete</a>
+              <a href="#" class="btn btn-danger delete-card" data-card-id="{{ user[0] }}">Delete</a>
             </div>
           </div>
         {% endfor %}
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  
+<!-- CODICE JQUERY CHE CHIAMA LA ROUTE DELETE -->
+<script src="{{ url_for('static', filename='js/delete.js') }}"></script>
+
   </body>
 </html>
