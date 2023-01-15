@@ -8,9 +8,12 @@ $('.delete-card').click(function(e){
         url: url,
         success: function(data){
           $('div.card#' + card_id).remove();
+          $('tr#' + card_id).remove();
         },
         error: function(xhr, status, error){
             console.log(xhr.responseText);
         }
     });
 });
+
+
