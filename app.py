@@ -12,7 +12,7 @@ def form():
     data = c.fetchall()
     conn.commit()
     conn.close()
-    return render_template("form.html",data=data)
+    return render_template("base.html",data=data)
 
 
 #Ricevi input modifica parola e ritorna input
@@ -35,21 +35,7 @@ def submit():
     c.execute("SELECT * FROM users")
     data = c.fetchall()
     conn.close()
-    return render_template("form.html",data=data)
-
-
-#Aggiunto il DELETE button (vecchio codice con il Refresh)
-# @app.route("/card/<int:card_id>/delete", methods=["GET"])
-# def delete_card(card_id):
-#     conn = sqlite3.connect("database/database.db")
-#     c = conn.cursor()
-#     c.execute("DELETE FROM users WHERE id=?", (card_id,))
-#     conn.commit()
-#     #query to retrieve the data from the table
-#     c.execute("SELECT * FROM users")
-#     data = c.fetchall()
-#     conn.close()
-#     return render_template("form.html",data=data)
+    return render_template("base.html",data=data)
 
 
 #CODICE AGGIORNATO PER IL DELETE USANDO JQUERY E JS 
