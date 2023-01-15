@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    {% include 'head.html' %}
+ 
+  </head>
+  <body>
+    <div class="container">
+
+      {% include 'input_form.html' %}
+
+      {% include 'cards.html' %}
+
+    </div>
+    
+    <div class="container">
+
+      {% include 'edit.html' %}
+
+    </div>
+    
+    <div class="container">
+
+      {% include 'table.html' %}
+      
+    </div>
+
+    
+  
+<!-- CODICE JQUERY CHE CHIAMA LA ROUTE DELETE -->
+<script src="{{ url_for('static', filename='js/delete.js') }}"></script>
+
+<!-- CODICE PER APRIRE IL MODAL -->
+<script src="{{ url_for('static', filename='js/edit_open.js') }}"> </script>
+
+<!-- CODICE PER INVIARE SALVARE LE MODIFICHE MODAL -->
+<script src="{{ url_for('static', filename='js/edit_submit.js') }}"> </script>
+
+  </body>
+</html>
