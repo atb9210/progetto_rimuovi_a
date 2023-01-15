@@ -19,7 +19,8 @@
         {% for user in data %}
           <div class="card">
             <div class="card-body">
-              <p class="card-text">{{ user[1] }}</p>
+              <p class="card-text">{{ user[0] }} {{ user[1] }}</p>
+              <a href="/card/{{ user[0] }}/delete" class="btn btn-danger">Delete</a>
             </div>
           </div>
         {% endfor %}
