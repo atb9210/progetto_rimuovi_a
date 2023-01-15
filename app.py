@@ -15,7 +15,14 @@ def submit():
     conn = sqlite3.connect("database/database.db")
     c = conn.cursor()
     c.execute("""CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)""")
-    c.execute("INSERT INTO users (name) VALUES (?)", (name,))
+    c.execute("SELECT * FROM users WHERE name=?", (name,))
+
+    #SE E GIA PRESENTE NON LO REINSERISCE
+    if c.fetchone():
+        pass
+    else:
+         c.execute("INSERT INTO users (name) VALUES (?)", (name,))
+
     conn.commit()
     #query to retrieve the data from the table
     c.execute("SELECT * FROM users")
