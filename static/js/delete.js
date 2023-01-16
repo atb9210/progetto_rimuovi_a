@@ -1,4 +1,7 @@
 
+
+// # DELETE (Jquery)
+
 $('.delete-card').click(function(e){
     e.preventDefault();
     var card_id = $(this).data('card-id');

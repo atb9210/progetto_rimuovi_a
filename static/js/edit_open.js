@@ -1,3 +1,6 @@
+
+// # OPEN MODAL EDIT
+
 $('.edit-card').click(function(event) {
     event.preventDefault();
     var card_id = $(this).data('card-id');

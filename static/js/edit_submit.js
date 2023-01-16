@@ -1,3 +1,6 @@
+
+// # SUMBIT AND SAVE EDIT
+
 $('#updateForm').submit(function(event) {
       event.preventDefault();
       var card_id = $('#idModal').val();
