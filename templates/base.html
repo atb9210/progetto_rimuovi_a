@@ -6,6 +6,7 @@
  
   </head>
   <body>
+
     <div class="container">
 
       {% include 'input_form.html' %}
@@ -25,6 +26,62 @@
       {% include 'table.html' %}
       
     </div>
+
+    <div id="app">
+      <h1>{{ jinja_variable }}</h1>
+      <h1 v-bind:text="(( vue_variable ))">(( vue_variable ))</h1>
+      <!--INCREMENTA CONTATORE-->
+      <button @click="increment"> Count is (( count )) </button>
+      <!-- RIMUOVI/MOSTRA OGGETTO -->
+      <button @click="toggleVisibility('myId')">Toggle Visibility</button>
+      <div v-if="showElement" id="myId">This is the element to toggle</div>
+      <form @submit.prevent="submitForm">
+        <label>Enter a value:</label>
+        <input v-model="value" type="text">
+        <button type="submit">Submit</button>
+      </form>
+      <h1 :text="responseData">((responseData))</h1>
+      <a v-bind:href="responseData">Vai al link di ((responseData))</a>
+  
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  
+    <script>
+      var app = new Vue({
+        delimiters: ['((', '))'],
+        el: '#app',
+        data: {
+          vue_variable: 'Toogoooo',
+          count:0,
+          showElement: true,
+          value:"",
+          responseData:"",
+        },
+        methods: {
+          increment () {
+            this.count++;
+          },
+          toggleVisibility: function(id){
+            this.showElement = !this.showElement;
+          },
+          submitForm: function(){
+            axios.get("/api/route", { params: { value: this.value } })
+            .then(response => {
+                console.log(response.data);
+                this.responseData = response.data;
+                console.log("Risposta"+ this.responseData);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }
+        
+        }
+      })
+    </script>
 
     
   

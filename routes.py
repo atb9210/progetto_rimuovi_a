@@ -4,6 +4,16 @@ from models import *
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
+
+
+#TEST VUE
+@app.route('/api/route', methods=['GET'])
+def get_value():
+    value = request.args.get('value')
+    response = "Risposta Ricevuta Reazione!!!"
+    print(response)
+    return value
+
 # INDEX PAGE
 @app.route("/")
 def form():
